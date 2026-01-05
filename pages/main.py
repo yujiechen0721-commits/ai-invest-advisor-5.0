@@ -110,7 +110,7 @@ with st.sidebar:
     u_monthly = st.number_input("💰 每月預計投入 (TWD)", min_value=1000, value=20000, step=1000)
     u_years = st.slider("📅 投資期間 (年)", 5, 40, 20)
     st.divider()
-    btn_start = st.button("🚀 執行 AI 深度配置", use_container_width=True, type="primary")
+    btn_start = st.button("執行 AI 深度配置", use_container_width=True, type="primary")
 
 # --- 5. 主內容區域 ---
 st.markdown('<div class="main-title">AI 投資小秘書</div>', unsafe_allow_html=True)
