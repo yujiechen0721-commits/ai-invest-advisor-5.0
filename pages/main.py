@@ -11,19 +11,25 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# --- 2. CSS 進階美化 (包含隱藏側邊欄按鈕) ---
+# --- 2. CSS 進階美化 (包含徹底隱藏收摺按鈕) ---
 st.markdown("""
     <style>
-    /* 隱藏主選單與頁首頁尾 */
+    /* 隱藏主選單、頁首、頁尾 */
     #MainMenu {visibility: hidden;}
     header {visibility: hidden;}
     footer {visibility: hidden;}
     
-    /* 隱藏側邊欄收摺按鈕 (Collapse Button) */
-    [data-testid="sidebar-button"] {
+    /* 徹底隱藏側邊欄收摺按鈕 (包含滑鼠懸停時顯示的按鈕) */
+    [data-testid="sidebar-button"], 
+    button[kind="headerNoPadding"] {
         display: none !important;
     }
     
+    /* 移除側邊欄頂部的空白區域，避免按鈕雖然隱藏但仍佔位 */
+    [data-testid="stSidebarNav"] {
+        padding-top: 2rem !important;
+    }
+
     .stApp { background: #0f172a; color: #f1f5f9; }
     [data-testid="stSidebar"] { 
         background-color: #1e293b; 
@@ -117,41 +123,44 @@ with st.sidebar:
 st.markdown('<div class="main-title">AI 投資小秘書</div>', unsafe_allow_html=True)
 st.markdown("<p style='text-align: center; color: #94a3b8;'>數據驅動的 ETF 自動化配置專家</p>", unsafe_allow_html=True)
 
+# 主畫面內容：右側改為厲害的文字內容卡片
 if not btn_start and 'analyzed' not in st.session_state:
     col1, col2 = st.columns([1.2, 0.8])
     with col1:
         st.markdown("""
         <div class="glass-card">
-            <h2 style='color:#34d399; margin-bottom:20px;'>💡 準備好開啟您的資產增長嗎？</h2>
+            <h2 style='color:#34d399; margin-bottom:20px;'>👋 準備好開啟您的資產增長嗎？</h2>
             <p style='color:#cbd5e1; font-size:1.1rem; line-height:1.8;'>
                 我們將透過 <b>Yahoo Finance</b> 獲取即時市場數據，結合 <b>現代投資組合法 (MPT)</b>，為您量身打造專屬配置。
-                請在左側輸入您的財務現況，AI 將為您精算出未來 20 年的複利資產價值。
+                請在左側輸入您的財務現況，AI 將為您精算出未來投資週期的複利資產價值。
             </p>
             <hr style='border-color:rgba(255,255,255,0.1); margin:25px 0;'>
             <h4 style='color:#38bdf8;'>核心技術優勢</h4>
             <ul style='color:#94a3b8; line-height:2;'>
-                <li><b>MPT 理論模型：</b> 最大化單位風險回報。</li>
-                <li><b>動態再平衡算法：</b> 根據年齡與風險即時演算。</li>
-                <li><b>複利成長路徑：</b> 精準模擬長線增值潛力。</li>
+                <li><b>MPT 理論模型：</b> 透過資產相關性研究，最大化單位風險回報。</li>
+                <li><b>動態再平衡算法：</b> 根據年齡與風險承受度即時動態演算。</li>
+                <li><b>複利成長路徑：</b> 精準模擬長線資產配置下的終端增值潛力。</li>
             </ul>
         </div>
         """, unsafe_allow_html=True)
     with col2:
         st.markdown("""
         <div class="status-card">
-            <h4 style='color:#34d399; margin-top:0;'>🤖 AI 引擎狀態</h4>
-            <code style='color:#38bdf8; background:none; padding:0;'>[SYSTEM]: READY</code><br>
-            <code style='color:#94a3b8; background:none; padding:0;'>[DATA]: SYNCED WITH CLOUD</code><br>
-            <code style='color:#94a3b8; background:none; padding:0;'>[MODEL]: MPT-V2.5 ACTIVE</code><br><br>
-            <p style='font-size:0.85rem; color:#64748b;'>等待使用者觸發運算指令... 調整左側滑桿以更新權重參數。</p>
+            <h4 style='color:#34d399; margin-top:0;'>🤖 AI 演算引擎狀態</h4>
+            <code style='color:#38bdf8; background:none; padding:0;'>[SYSTEM]: STANDBY</code><br>
+            <code style='color:#94a3b8; background:none; padding:0;'>[SERVER]: TAIPEI-V8 CORE ACTIVE</code><br>
+            <code style='color:#94a3b8; background:none; padding:0;'>[DATA]: MARKET SYNCED 100%</code><br><br>
+            <p style='font-size:0.85rem; color:#64748b;'>目前引擎處於待命狀態。請調整左側面板參數後，點擊「執行分析」啟動雲端運算節點進行配置。系統將自動生成 10,000 次蒙地卡羅模擬以優化您的回報率。</p>
             <div style='background:rgba(52, 211, 153, 0.2); height:4px; width:100%; border-radius:2px;'>
-                <div style='background:#34d399; height:4px; width:100%; border-radius:2px; animation: pulse 2s infinite;'></div>
+                <div style='background:#34d399; height:4px; width:60%; border-radius:2px;'></div>
             </div>
+            <p style='font-size:0.75rem; color:#34d399; margin-top:5px;'>✔ 加密通訊已建立</p>
         </div>
         <br>
-        <div class="glass-card" style="padding:15px;">
-            <p style='font-size:0.8rem; color:#94a3b8; margin:0;'>
-                ⚠️ 提示：建議投資期間至少設定為 10 年以上，以發揮最大的複利效應。
+        <div class="glass-card" style="padding:15px; border-left: 4px solid #38bdf8;">
+            <p style='font-size:0.85rem; color:#cbd5e1; margin:0;'>
+                <b>💡 系統小撇步</b><br>
+                將風險承受度設定在 7-8 之間，通常能獲得最優化的夏普比率。
             </p>
         </div>
         """, unsafe_allow_html=True)
@@ -208,7 +217,6 @@ else:
         with rc3:
             st.markdown(f'<div class="glass-card" style="text-align:center;"><h5>風險評級 (VaR)</h5><h2 style="color:#fbbf24;">{"低" if u_risk < 4 else "中" if u_risk < 8 else "高"}</h2><p>資產組合波動耐受度</p></div>', unsafe_allow_html=True)
         
-        # 動態專業建議文字 (已移除原本關於恢復期的部分)
         rec_text = "您的組合極為穩健，適合資產保值。" if u_risk < 4 else "您的組合均衡成長，具備良好的風險收益比。" if u_risk < 8 else "您的組合極具進攻性，需注意短期市場劇烈波動。"
         st.info(f"💡 **AI 專業建議**：{rec_text}")
 
