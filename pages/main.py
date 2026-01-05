@@ -119,7 +119,8 @@ st.markdown("<p style='text-align: center; color: #94a3b8;'>數據驅動的 ETF 
 if not btn_start and 'analyzed' not in st.session_state:
     col1, col2 = st.columns([1.2, 0.8])
     with col1:
-        st.markdown('<div class="glass-card"><h2 style="color:#34d399; margin-bottom:20px;">👋 準備好開啟您的資產增長嗎？</h2><p style="color:#cbd5e1; font-size:1.1rem; line-height:1.8;">我們將透過即時市場數據與 <b>現代投資組合法 (MPT)</b>，為您打造專業配置。請點擊左側按鈕啟動運算。</p><hr style="border-color:rgba(255,255,255,0.1); margin:25px 0;"><h4 style="color:#38bdf8;">核心技術優勢</h4><ul style="color:#94a3b8; line-height:2;"><li><b>MPT 理論模型：</b> 最大化單位風險回報。</li><li><b>動態再平衡算法：</b> 根據年齡即時動態演算。</li></ul></div>', unsafe_allow_html=True)
+        st.markdown('<div class="glass-card"><h2 style="color:#34d399; margin-bottom:20px;">👋 準備好開啟您的資產增長嗎？</h2><p style="color:#cbd5e1; font-size:1.1rem; line-height:1.8;">我們將透過 <b>Yahoo Finance</b> 獲取即時市場數據，結合 <b>現代投資組合法 (MPT)</b>，為您量身打造專屬配置。
+                請在左側輸入您的財務現況，AI 將為您精算出未來投資週期的複利資產價值。</p><hr style="border-color:rgba(255,255,255,0.1); margin:25px 0;"><h4 style="color:#38bdf8;">核心技術優勢</h4><ul style="color:#94a3b8; line-height:2;"><li><b>MPT 理論模型：</b> 最大化單位風險回報。</li><li><b>動態再平衡算法：</b> 根據年齡即時動態演算。</li></ul></div>', unsafe_allow_html=True)
     with col2:
         st.markdown('<div class="status-card"><h4 style="color:#34d399; margin-top:0;">🤖 AI 演算引擎狀態</h4><code style="color:#38bdf8; background:none; padding:0;">[SYSTEM]: STANDBY</code><br><code style="color:#94a3b8; background:none; padding:0;">[SERVER]: ACTIVE</code><br><br><p style="font-size:0.85rem; color:#64748b;">目前引擎處於待命狀態。請點擊「執行分析」啟動優化回報率模擬。</p><div style="background:rgba(52, 211, 153, 0.2); height:4px; width:100%; border-radius:2px;"><div style="background:#34d399; height:4px; width:60%; border-radius:2px;"></div></div></div>', unsafe_allow_html=True)
 else:
