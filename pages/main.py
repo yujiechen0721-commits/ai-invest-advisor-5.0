@@ -117,7 +117,7 @@ with st.sidebar:
     u_years = st.slider("📅 投資期間 (年)", 5, 40, 20)
     
     st.divider()
-    btn_start = st.button("🚀 執行 AI 深度配置", use_container_width=True, type="primary")
+    btn_start = st.button(" 🚀 執行 AI 深度配置 ", use_container_width=True, type="primary")
 
 # --- 5. 主內容區域 ---
 st.markdown('<div class="main-title">AI 投資小秘書</div>', unsafe_allow_html=True)
@@ -187,7 +187,7 @@ else:
         with c2:
             st.markdown(f"""
             <div class="glass-card">
-                <h4 style="color:#34d399">💡 專家配置策略解析</h4>
+                <h4 style="color:#34d399"> 💡配置策略解析 </h4>
                 <p>針對您 <b>{u_age} 歲</b> 且風險偏好為 <b>{u_risk}/10</b> 的特質，我們建議配置 <b>{weights['BND (全球債券)']*100:.0f}%</b> 的避險資產。</p>
                 <p style="color:#94a3b8; font-size:0.9rem;">此配置利用全球股票 (VT) 捕捉長期 beta 收益，並透過 0050 強化台股核心競爭力，最後以 BND 平滑波動。</p>
             </div>
