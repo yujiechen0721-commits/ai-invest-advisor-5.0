@@ -127,7 +127,7 @@ if not btn_start and 'analyzed' not in st.session_state:
                     透過分散投資於全球指數 ETF，有效降低單一市場波動風險，守護您的每一分積蓄。
                 </p>
                 <hr style="border-color:rgba(255,255,255,0.1); margin:25px 0;">
-                <h4 style="color:#38bdf8;">🌟 為什麼選擇 AI 小秘書？</h4>
+                <h4 style="color:#38bdf8;">🌟 為什麼選擇 AI投資小秘書？</h4>
                 <ul style="color:#94a3b8; line-height:2.2; font-size:1rem;">
                     <li><b>動態再平衡演算法：</b> 根據年齡與風險承受度即時動態演進配置比例。</li>
                     <li><b>複利成長模擬：</b> 精準模擬未來 20-40 年的資產增值路徑，看見未來的財富。</li>
